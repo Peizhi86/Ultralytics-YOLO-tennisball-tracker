@@ -3,7 +3,7 @@
 pip install ultralytics
 
 
-训练：
+TRAIN：
 yolo task=detect \
 mode=train \
 model=yolov8n.pt \
@@ -18,7 +18,7 @@ name=tennis_track_train
 
     mode=train: 模式为训练。
 
-    model=yolov8n.pt: 使用预训练的YOLOv8纳米模型。
+    model=yolov8n.pt: 使用预训练的YOLOv8模型。
 
     data=...: 指向你刚刚创建的 tennis.yaml 文件。
 
@@ -26,23 +26,23 @@ name=tennis_track_train
 
     imgsz=640: 输入图像的尺寸为640x640像素。
 
-    batch=16: 每批处理16张图片。如果GPU内存不足（报CUDA out of memory错误），请减小这个数值，例如改为 batch=8 或 batch=4。
+    batch=16: 每批处理16张图片。
 
     name=tennis_track_train: 为这次训练运行命名，输出会保存在 runs/detect/tennis_track_train/ 目录下。
 ##
 
-验证：
+TEST：
 yolo task=detect \
 mode=val \
 model=/home/rong/Pointnet_Pointnet2_pytorch/YOLO/runs/detect/tennis_track_train/weights/best.pt \
 data=/home/rong/Pointnet_Pointnet2_pytorch/YOLO/tennis_dataset/tennis.yaml
 
 
-追踪：
+TRACK：
 yolo task=detect \
 mode=track \
 model=/home/rong/Pointnet_Pointnet2_pytorch/YOLO/runs/detect/tennis_track_train/weights/best.pt \
-source="/home/rong/Pointnet_Pointnet2_pytorch/YOLO/tenniball and label/追踪原视频.mp4" \
+source="/home/rong/Pointnet_Pointnet2_pytorch/YOLO/tenniball and label/input.mp4" \
 show=True \
 tracker=botsort.yaml
 
@@ -51,9 +51,9 @@ tracker=botsort.yaml
 
     model=...: 指向你训练得到的最佳模型 best.pt。
 
-    source=...: 指向你的输入视频文件路径（例如 /home/rong/videos/tennis_match.mp4）。
+    source=...: 指向你的输入视频文件路径
 
     show=True: 在屏幕上实时显示追踪结果（如果是在有图形界面的机器上）。对于服务器，可以设置为 False。
 
-    tracker=botsort.yaml: 指定追踪算法。Ultralytics YOLO默认集成BoT-SORT和ByteTrack，推荐先尝试 botsort.yaml。
+    tracker=botsort.yaml: 指定追踪算法。
 ##
