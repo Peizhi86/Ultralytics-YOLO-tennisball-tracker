@@ -2,6 +2,7 @@
 
 pip install ultralytics
 
+model=runs/detect/tennis_track_train/weights/best.pt 
 
 TRAIN：
 yolo task=detect \
