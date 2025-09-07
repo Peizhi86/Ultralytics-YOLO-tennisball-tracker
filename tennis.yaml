@@ -1,0 +1,11 @@
+# 训练和验证数据集图片的根目录路径
+path: /home/rong/Pointnet_Pointnet2_pytorch/YOLO/tennis_dataset
+# 训练图像（相对于'path'的路径）
+train: images/train
+# 验证图像（相对于'path'的路径）
+val: images/val
+
+# 类别数目
+nc: 1
+# 类别名称列表
+names: ['tennis ball']
